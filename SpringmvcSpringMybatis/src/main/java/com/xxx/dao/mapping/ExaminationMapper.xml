@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.dao.ExaminationMapper">
+  <resultMap id="BaseResultMap" type="com.xxx.model.Examination">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="exam" jdbcType="VARCHAR" property="exam" />
+    <result column="exam_result" jdbcType="VARCHAR" property="exam_result" />
+    <result column="optionA" jdbcType="VARCHAR" property="optionA" />
+    <result column="optionB" jdbcType="VARCHAR" property="optionB" />
+    <result column="optionC" jdbcType="VARCHAR" property="optionC" />
+    <result column="optionD" jdbcType="VARCHAR" property="optionD" />
+  </resultMap>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from examination
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.xxx.model.Examination">
+    insert into examination (exam, exam_result, 
+      optionA, optionB, optionC, 
+      optionD) values ( #{exam,jdbcType=VARCHAR}, #{exam_result,jdbcType=VARCHAR}, 
+      #{optionA,jdbcType=VARCHAR}, #{optionB,jdbcType=VARCHAR}, #{optionC,jdbcType=VARCHAR}, 
+      #{optionD,jdbcType=VARCHAR})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.xxx.model.Examination">
+    update examination
+    set exam = #{exam,jdbcType=VARCHAR},
+      exam_result = #{exam_result,jdbcType=VARCHAR},
+      optionA = #{optionA,jdbcType=VARCHAR},
+      optionB = #{optionB,jdbcType=VARCHAR},
+      optionC = #{optionC,jdbcType=VARCHAR},
+      optionD = #{optionD,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, exam, exam_result, optionA, optionB, optionC, optionD
+    from examination
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, exam, exam_result, optionA, optionB, optionC, optionD
+    from examination
+  </select>
+</mapper>

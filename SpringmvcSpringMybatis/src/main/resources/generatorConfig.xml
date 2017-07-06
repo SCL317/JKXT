@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context1" targetRuntime ="Mybatis3Simple">
+  <commentGenerator>
+    <property name="suppressAllComments" value="true"/>
+  </commentGenerator>
+       <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/jk_db" driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
+    <javaModelGenerator targetPackage="jkxt.model" targetProject="SpringmvcSpringMybatis" />
+    <sqlMapGenerator targetPackage="jkxt.map" targetProject="SpringmvcSpringMybatis" />
+    <javaClientGenerator targetPackage="jkxt.client" targetProject="SpringmvcSpringMybatis" type="XMLMAPPER" />
+    <table schema="jk_db" tableName="examination">
+      <columnOverride column="id" property="id" />
+      <columnOverride column="exam" property="exam" />
+      <columnOverride column="exam_result" property="exam_result" />
+      <columnOverride column="optionA" property="optionA" />
+      <columnOverride column="optionB" property="optionB" />
+      <columnOverride column="optionC" property="optionC" />
+      <columnOverride column="optionD" property="optionD" />
+    </table>
+  </context>
+</generatorConfiguration>
