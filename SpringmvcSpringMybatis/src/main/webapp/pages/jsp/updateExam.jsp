@@ -10,12 +10,12 @@
 <center>
 		<h3>更新试题</h3>
 		<hr />
-		<form action="SpringmvcSpringMybatis/examination/update" method="post">
+		<form action="<%= request.getContextPath()%>/examination/update" method="post">
 			<input id="id" type="hidden" name="id" value="${examlist.id}">
 			<table>
 				<tr>
 					<td>题目:</td>
-					<td><input type="text" name="exam" id="exam" value="${examlist.exam}"/></td>
+					<td><input type="text" name="exam" id="exam" value="${examlist.getExam()}"/></td>
 				</tr>
 				<tr>
 					<td>选项A:</td>

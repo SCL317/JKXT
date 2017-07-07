@@ -50,10 +50,10 @@ public class examinationController {
 			String[] ids =request.getParameterValues("ids");
 			if (null !=ids) {
 				List<Integer> list =new ArrayList<Integer>();
-				for (int i = 1;i<ids.length;i++) {
+				for (int i = 0;i<ids.length;i++) {
 					list.add(Integer.parseInt(ids[i]));
+					iexaminationService.delete(list);
 				}
-				iexaminationService.delete(list);
 			}
 			return toHomePage();
 		}

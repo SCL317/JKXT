@@ -41,8 +41,8 @@ public class examinationServiceImpl implements IexaminationService {
 
 	@Override
 	public Examination selectOne(Integer id) {
-		examinationMapper.selectByPrimaryKey(id);
-		return null;
+	
+		return examinationMapper.selectByPrimaryKey(id);
 	}
 
 	
