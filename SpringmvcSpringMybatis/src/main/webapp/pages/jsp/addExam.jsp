@@ -15,27 +15,27 @@
 			<table>
 				<tr>
 					<td>题目:</td>
-					<td><input type="text" name="exam" /></td>
+					<td><input type="text" name="exam"  id="exam"/></td>
 				</tr>
 				<tr>
 					<td>选项A:</td>
-					<td><input type="text" name="optionA" /></td>
+					<td><input type="text" name="optionA" id="optionA"/></td>
 				</tr>
 				<tr>
 					<td>选项B:</td>
-					<td><input type="text" name="optionB" /></td>
+					<td><input type="text" name="optionB" id="optionB"/></td>
 				</tr>
 				<tr>
 					<td>选项C:</td>
-					<td><input type="text" name="optionC" /></td>
+					<td><input type="text" name="optionC" id="optionC"/></td>
 				</tr>
 				<tr>
 					<td>选项D:</td>
-					<td><input type="text" name="optionD" /></td>
+					<td><input type="text" name="optionD" id="optionD"/></td>
 				</tr>
 				<tr>
 					<td>正确答案:</td>
-					<td><input type="text" name="exam_result" /></td>
+					<td><input type="text" name="exam_result" id="exam_result"/></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="添加" /></td>

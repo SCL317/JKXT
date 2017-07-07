@@ -11,11 +11,22 @@
     <result column="optionD" jdbcType="VARCHAR" property="optionD" />
   </resultMap>
   
+  <!-- 删除数据 使用ids -->
+	<delete id="deleteByIds" >
+		delete from examination where id in
+		<foreach item="item" collection="ids" open="(" close=")"
+			separator=",">
+			#{item}
+		</foreach>
+	</delete>
+  
+   <!-- 删除数据 使用id -->
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from examination
     where id = #{id,jdbcType=INTEGER}
   </delete>
   
+  <!-- 插入数据 -->
   <insert id="insert" parameterType="com.xxx.model.Examination">
     insert into examination (exam, exam_result, 
       optionA, optionB, optionC, 
@@ -23,7 +34,7 @@
       #{optionA,jdbcType=VARCHAR}, #{optionB,jdbcType=VARCHAR}, #{optionC,jdbcType=VARCHAR}, 
       #{optionD,jdbcType=VARCHAR})
   </insert>
-  
+  <!-- 更新数据 -->
   <update id="updateByPrimaryKey" parameterType="com.xxx.model.Examination">
     update examination
     set exam = #{exam,jdbcType=VARCHAR},
@@ -32,15 +43,15 @@
       optionB = #{optionB,jdbcType=VARCHAR},
       optionC = #{optionC,jdbcType=VARCHAR},
       optionD = #{optionD,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+      where id = #{id,jdbcType=INTEGER}
   </update>
-  
+  <!-- 查询单条记录 -->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select id, exam, exam_result, optionA, optionB, optionC, optionD
     from examination
     where id = #{id,jdbcType=INTEGER}
   </select>
-  
+  <!-- 插入全部 -->
   <select id="selectAll" resultMap="BaseResultMap">
     select id, exam, exam_result, optionA, optionB, optionC, optionD
     from examination
